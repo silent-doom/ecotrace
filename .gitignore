@@ -1,0 +1,25 @@
+# Root
+node_modules/
+.DS_Store
+*.log
+
+# Server
+server/dist/
+server/db.json
+
+# Client
+client/dist/
+client/.env.local
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+Thumbs.db

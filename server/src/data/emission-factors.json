@@ -1,0 +1,86 @@
+{
+  "transport": {
+    "car_petrol": { "kgCO2e_per_km": 0.192, "label": "Petrol Car" },
+    "car_diesel": { "kgCO2e_per_km": 0.171, "label": "Diesel Car" },
+    "car_hybrid": { "kgCO2e_per_km": 0.109, "label": "Hybrid Car" },
+    "car_electric": { "kgCO2e_per_km": 0.053, "label": "Electric Car" },
+    "motorbike": { "kgCO2e_per_km": 0.114, "label": "Motorbike" },
+    "bus": { "kgCO2e_per_km": 0.089, "label": "Bus" },
+    "train": { "kgCO2e_per_km": 0.041, "label": "Train" },
+    "metro": { "kgCO2e_per_km": 0.028, "label": "Metro/Subway" },
+    "bicycle": { "kgCO2e_per_km": 0.0, "label": "Bicycle" },
+    "walking": { "kgCO2e_per_km": 0.0, "label": "Walking" },
+    "flight_short": { "kgCO2e_per_km": 0.255, "label": "Short-haul Flight (<3h)" },
+    "flight_long": { "kgCO2e_per_km": 0.195, "label": "Long-haul Flight (>3h)" }
+  },
+  "diet": {
+    "meat_heavy": { "kgCO2e_per_day": 7.19, "label": "Meat Heavy (>100g/day)" },
+    "meat_medium": { "kgCO2e_per_day": 5.63, "label": "Average Omnivore" },
+    "meat_low": { "kgCO2e_per_day": 4.67, "label": "Low Meat (<50g/day)" },
+    "pescatarian": { "kgCO2e_per_day": 3.91, "label": "Pescatarian" },
+    "vegetarian": { "kgCO2e_per_day": 3.81, "label": "Vegetarian" },
+    "vegan": { "kgCO2e_per_day": 2.89, "label": "Vegan" }
+  },
+  "food_waste_multiplier": {
+    "none": 1.0,
+    "low": 1.08,
+    "medium": 1.15,
+    "high": 1.25
+  },
+  "local_food_discount": {
+    "0_25": 1.0,
+    "25_50": 0.95,
+    "50_75": 0.9,
+    "75_100": 0.85
+  },
+  "energy": {
+    "grid_intensity": {
+      "global_avg": 0.475,
+      "us": 0.386,
+      "uk": 0.233,
+      "eu": 0.276,
+      "india": 0.708,
+      "china": 0.555,
+      "australia": 0.656,
+      "canada": 0.15,
+      "brazil": 0.074,
+      "south_africa": 0.899
+    },
+    "heating": {
+      "natural_gas": { "kgCO2e_per_kwh": 0.203, "label": "Natural Gas" },
+      "oil": { "kgCO2e_per_kwh": 0.298, "label": "Heating Oil" },
+      "coal": { "kgCO2e_per_kwh": 0.341, "label": "Coal" },
+      "electric_heat_pump": { "kgCO2e_per_kwh": 0.085, "label": "Heat Pump" },
+      "wood": { "kgCO2e_per_kwh": 0.015, "label": "Biomass/Wood" },
+      "district": { "kgCO2e_per_kwh": 0.12, "label": "District Heating" }
+    }
+  },
+  "lifestyle": {
+    "shopping": {
+      "minimal": { "kgCO2e_per_year": 200, "label": "Minimal (<€500/yr)" },
+      "moderate": { "kgCO2e_per_year": 600, "label": "Moderate (€500–1500/yr)" },
+      "high": { "kgCO2e_per_year": 1500, "label": "High (€1500–3000/yr)" },
+      "very_high": { "kgCO2e_per_year": 3000, "label": "Very High (>€3000/yr)" }
+    },
+    "streaming_kgCO2e_per_hour": 0.036,
+    "device_upgrade_cycle": {
+      "1_year": { "kgCO2e_per_year": 156, "label": "Every year" },
+      "2_years": { "kgCO2e_per_year": 78, "label": "Every 2 years" },
+      "3_years": { "kgCO2e_per_year": 52, "label": "Every 3 years" },
+      "5_years": { "kgCO2e_per_year": 31.2, "label": "Every 5+ years" }
+    }
+  },
+  "regional_averages": {
+    "global": 4900,
+    "us": 14700,
+    "uk": 5500,
+    "eu": 6800,
+    "india": 1900,
+    "china": 8200,
+    "australia": 14600,
+    "canada": 14200,
+    "brazil": 2200,
+    "south_africa": 8900
+  },
+  "paris_target_kg": 1500
+}
