@@ -57,7 +57,7 @@ export class ErrorBoundary extends Component<Props, State> {
           <p style={{ color: '#8892A4', fontSize: '0.95rem', maxWidth: 400, marginBottom: 32 }}>
             EcoTrace encountered an unexpected error. Your data is safe — please refresh to continue.
           </p>
-          {process.env.NODE_ENV !== 'production' && this.state.error && (
+          {import.meta.env.DEV && this.state.error && (
             <pre style={{
               background: 'rgba(255,71,87,0.08)',
               border: '1px solid rgba(255,71,87,0.2)',
