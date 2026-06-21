@@ -23,7 +23,7 @@ function AppContent() {
     <>
       <div className="bg-animated" />
       <Sidebar />
-      <main className="main-content" style={{ paddingBottom: 80 }}>
+      <main id="main-content" role="main" className="main-content" style={{ paddingBottom: 80 }}>
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/dashboard" element={<PageWrapper><Dashboard /></PageWrapper>} />
