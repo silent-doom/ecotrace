@@ -1,6 +1,7 @@
 import { JSONFilePreset } from 'lowdb/node';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { mkdirSync, existsSync } from 'fs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -53,6 +54,12 @@ const dbPath =
   process.env.NODE_ENV === 'production'
     ? '/data/db.json'
     : join(__dirname, '../../db.json');
+
+// Ensure the directory exists before lowdb tries to write to it
+const dbDir = dirname(dbPath);
+if (!existsSync(dbDir)) {
+  mkdirSync(dbDir, { recursive: true });
+}
 
 import type { Low } from 'lowdb';
 
