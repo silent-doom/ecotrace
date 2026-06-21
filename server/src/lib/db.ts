@@ -1,7 +1,6 @@
 import { JSONFilePreset } from 'lowdb/node';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { mkdirSync, existsSync } from 'fs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -50,19 +49,26 @@ const defaultData: DbSchema = {
   commitments: [],
 };
 
-const dbPath =
-  process.env.NODE_ENV === 'production'
-    ? '/data/db.json'
-    : join(__dirname, '../../db.json');
+import { existsSync, accessSync, constants } from 'fs';
+import type { Low } from 'lowdb';
 
-// Ensure the directory exists before lowdb tries to write to it
-const dbDir = dirname(dbPath);
-if (!existsSync(dbDir)) {
-  mkdirSync(dbDir, { recursive: true });
+function resolveDbPath(): string {
+  if (process.env.NODE_ENV !== 'production') {
+    return join(__dirname, '../../db.json');
+  }
+  // Use /data only if a Render disk is mounted there (i.e. it exists & is writable)
+  try {
+    accessSync('/data', constants.W_OK);
+    return '/data/db.json';
+  } catch {
+    // No disk mounted — fall back to /tmp (ephemeral but always writable)
+    return '/tmp/db.json';
+  }
 }
 
-import type { Low } from 'lowdb';
+const dbPath = resolveDbPath();
 
 export async function getDb(): Promise<Low<DbSchema>> {
   return JSONFilePreset<DbSchema>(dbPath, defaultData);
 }
+
